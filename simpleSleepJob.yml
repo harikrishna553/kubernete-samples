@@ -1,0 +1,17 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: sleep-job-1-pod
+  labels:
+    app: sleep-job-1
+    author: krishna
+    serviceType: terminal-app
+spec:
+  template:
+    spec:
+      containers:
+        - name: sleep-job-container
+          image: busybox
+          command: ["/bin/sleep"]
+          args: ["20"]
+      restartPolicy: Never

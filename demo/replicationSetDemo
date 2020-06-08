@@ -1,0 +1,31 @@
+kubectl create -f employeeServiceReplicationSet.yml
+
+Get Replicasets
+kubectl get replicaset
+
+Get Pods
+kubectl get pods -o wide
+
+Lets update number of replicas in the definition file.
+
+Replace previous definition.
+kubectl replace -f employeeServiceReplicationSet.yml
+
+Query Pods
+kubectl get pods -o wide
+
+Scale replicas using scale command
+kubectl scale --replicas=10 -f employeeServiceReplicationSet.yml
+
+Scale replicas by specifying replicaSet
+kubectl scale --replicas=3 replicaset employee-service-replica-set
+
+
+ReplicaSet monitor the Pods. to confirm delete a pod.
+kubectl delete pod 
+
+kubectl get pods
+
+
+Delete ReplicaSet
+kubectl delete replicaset employee-service-replica-set

@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: emp-serv
+spec:
+  selector:
+    app: employee-service
+  ports:
+  - port: 8080
+    name: whatever
+  type: NodePort

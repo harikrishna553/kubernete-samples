@@ -1,0 +1,45 @@
+
+kubectl create -f notificationServiceDeployment.yml
+
+
+Check rollout status
+kubectl rollout status deployment/my-deployment
+
+Check rollout history
+kubectl rollout history deployment/notification-service-deployment
+
+Get info about all the objects.
+kubectl get all
+
+Update image version
+jboss/wildfly:15.0.0.Final
+
+kubectl set image deployment/notification-service-deployment notification-service-container=jboss/wildfly:15.0.0.Final
+
+
+kubectl rollout status deployment/notification-service-deployment
+
+kubectl rollout history deployment/notification-service-deployment
+
+kubectl get replicaset -o wide
+
+
+kubectl describe deployment notification-service-deployment
+
+Rollback to previous deployment.
+kubectl rollout undo deployment/notification-service-deployment
+
+kubectl rollout history deployment/notification-service-deployment
+
+
+Update deployment definition file
+image: jboss/wildfly:19.1.0.Final
+
+Explain about --record -> Revision
+kubectl apply -f notificationServiceDeployment.yml --record
+
+
+kubectl rollout history deployment/notification-service-deployment
+deployment.apps/notification-service-deployment 
+
+

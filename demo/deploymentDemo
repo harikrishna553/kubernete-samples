@@ -1,0 +1,14 @@
+
+kubectl create -f employeeServiceDeployment.yml 
+
+kubectl get deployments
+
+Deployment automatically create replicaset.
+kubectl get deployments
+
+Replicaset create pods
+kubectl get pods
+
+kubectl describe deployment
+
+kubectl delete deployment {deploymentName}	

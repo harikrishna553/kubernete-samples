@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: employee-service
+  labels:
+    app: employee-service
+    author: krishna
+    serviceType: webservice
+spec:
+  securityContext:
+    runAsNonRoot: true
+  containers:
+    - name: employee-service-container
+      image: jboss/wildfly

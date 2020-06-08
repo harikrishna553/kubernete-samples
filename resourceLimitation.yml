@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: resource-limitation-demo
+  labels:
+    app: hello-world
+    author: krishna
+    serviceType: user-service
+spec:
+  containers:
+    - name: user-service-terminal
+      image: busybox
+      command:
+        - sleep 
+        - "30"
+      resources:
+        requests:
+          memory: "64Mi"
+          cpu: "250m"
+        limits:
+          memory: "128Mi"
+          cpu: "500m"
+    - name: user-service
+      image: jboss/wildfly
+      resources:
+        requests:
+          memory: "64Mi"
+          cpu: "250m"
+        limits:
+          memory: "128Mi"
+          cpu: "500m"

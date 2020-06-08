@@ -1,0 +1,19 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: sleep-parallel-job-pod
+  labels:
+    app: sleep-parallel-job
+    author: krishna
+    serviceType: terminal-app
+spec:
+  completions: 10
+  parallelism: 2
+  template:
+    spec:
+      containers:
+        - name: sleep-parallel-job-container
+          image: busybox
+          command: ["/bin/sleep"]
+          args: ["30"]
+      restartPolicy: Never

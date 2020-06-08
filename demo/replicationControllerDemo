@@ -1,0 +1,11 @@
+kubectl create -f employeeServiceReplicationController.yml
+
+See all the replication controllers
+kubectl get replicationcontroller
+
+kubectl get pods
+
+kubectl get pods -o wide
+
+Delete Replication Controller -> it deletes pods also
+kubectl delete replicationcontroller {replicationController}

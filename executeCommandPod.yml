@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: execute-command-pod
+  labels:
+    app: hello-world
+    author: krishna
+    serviceType: terminal-app
+spec:
+  containers:
+    - name: execute-command-container
+      image: busybox
+      command: ["/bin/sh"]
+      args: ["-c", "while true; do echo 'Hello World'; sleep 5; done"]

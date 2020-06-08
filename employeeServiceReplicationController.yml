@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: employee-service-rc
+  labels:
+    app: employee-service-rc
+    author: krishna
+    serviceType: webservice
+spec:
+  template:
+    metadata:
+      name: employee-service
+      labels:
+        app: employee-service
+        author: krishna
+        serviceType: webservice
+    spec:
+      containers:
+      - name: employee-service-container
+        image: jboss/wildfly
+
+  replicas: 3

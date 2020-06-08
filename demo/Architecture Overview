@@ -1,0 +1,38 @@
+Master Node
+Responsible to manage entire Kubernetes cluster.
+
+Cube API Server
+Allows you to interact with Kubernetes via APIs.
+
+
+Scheduler
+Watches for newly created pods and run them in a node.
+
+Controller Manager
+These are background tasks.
+a.  Node Controller
+b.  Replication Controller
+c.  Endpoint Controller
+d.  Service Account Controllers
+
+etcd
+Simple distributed key-value store. Pod details, Job information etc., will be stored here.
+
+Kubectl
+It is the application to interact with master node. Kubeconfig has authentication information used by Kubectl to access API server.
+
+Worker Nodes
+These are the nodes, where actual application runs. Worker nodes can be exposed to internet and the traffic is controlled via kube-proxy.
+
+Kubelet
+Communication to worker node is handled by kubelet process. This is communicated with API Server.
+
+Kube-Proxy
+It is a load balancer. It handles Network Traffic.
+
+Pod
+Pod is the smallest unit. Kubelet process communicate with pods to check pods status.
+
+
+kubectl create -f userService.yml
+kubectl get services

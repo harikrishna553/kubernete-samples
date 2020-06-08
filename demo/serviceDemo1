@@ -1,0 +1,16 @@
+kubectl create deployment hello-node --image=jboss/wildfly
+
+View Deployments
+kubectl get deployments
+
+View Pods
+kubectl get pods
+
+Create a Service
+kubectl expose deployment hello-node --type=LoadBalancer --port=8080
+
+Get Services
+kubectl get services
+
+Open hello-node service in browser.
+minikube service hello-node

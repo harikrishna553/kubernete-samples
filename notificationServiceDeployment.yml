@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: notification-service-deployment
+  labels:
+    app: notification-service-deployment
+    author: krishna
+    serviceType: webservice
+spec:
+  template:
+    metadata:
+      name: notification-service
+      labels:
+        app: notification-service
+        author: krishna
+        serviceType: webservice
+    spec:
+      containers:
+      - name: notification-service-container
+        image: jboss/wildfly
+
+  replicas: 10
+  selector:
+    matchLabels:
+      app: notification-service

@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: configmap-demo-pod2
+  labels:
+    app: document-storage
+    author: krishna
+    serviceType: desktop
+spec:
+  containers:
+    - name: document-storage
+      image: jboss/wildfly
+      volumeMounts:
+      - name: conf
+        mountPath: /app/configs 
+  volumes:
+  - name: conf
+    configMap:
+      name: document-storage-configmap
+      items:
+      - key: document-storage-configs.conf
+        path: document-storage-configs

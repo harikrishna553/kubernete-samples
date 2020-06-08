@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-pod
+  labels:
+    app: hello-world
+    author: krishna
+    serviceType: user-service
+spec:
+  volumes:
+    - name: pv-storage
+      persistentVolumeClaim:
+        claimName: my-pvc
+  containers:
+    - name: container1
+      image: busybox
+      command:
+        - sleep 
+        - "300"
+      volumeMounts:
+        - mountPath: /container1-mount
+          name: pv-storage

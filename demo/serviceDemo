@@ -1,0 +1,7 @@
+kubectl create deployment tomcat --image=tomcat:8.5.54-jdk11
+
+kubectl expose deployment tomcat --type=LoadBalancer --port=8080
+
+kubectl get services
+
+minikube service tomcat

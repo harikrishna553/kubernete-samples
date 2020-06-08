@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: employee-service-deployment
+  labels:
+    app: employee-service-deployment
+    author: krishna
+    serviceType: webservice
+spec:
+  template:
+    metadata:
+      name: employee-service
+      labels:
+        app: employee-service
+        author: krishna
+        serviceType: webservice
+    spec:
+      containers:
+      - name: employee-service-container
+        image: jboss/wildfly
+
+  replicas: 1
+  selector:
+    matchLabels:
+      app: employee-service

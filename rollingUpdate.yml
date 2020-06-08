@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: domain-service-deployment
+  labels:
+    app: domain-service-deployment
+    author: krishna
+    serviceType: webservice
+spec:
+  template:
+    metadata:
+      name: domain-service
+      labels:
+        app: domain-service
+        author: krishna
+        serviceType: webservice
+    spec:
+      containers:
+      - name: domain-service-container
+        image: jboss/wildfly
+
+  replicas: 5
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 2
+      maxUnavailable: 1
+  selector:
+    matchLabels:
+      app: domain-service

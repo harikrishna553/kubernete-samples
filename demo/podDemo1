@@ -1,0 +1,9 @@
+kubectl get pods
+
+kubectl run user-service --image jboss/wildfly
+
+kubectl get pods
+
+kubectl describe pods 
+
+kubectl get pods -o wide

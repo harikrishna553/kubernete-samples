@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: container-with-two-pods
+  labels:
+    app: hello-world
+    author: krishna
+    serviceType: user-service
+spec:
+  containers:
+    - name: user-service-terminal
+      image: busybox
+      command:
+        - sleep 
+        - "30"
+    - name: user-service
+      image: jboss/wildfly

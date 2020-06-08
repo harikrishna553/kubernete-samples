@@ -1,0 +1,4 @@
+kubectl create -f employeeServicePod.yml
+
+kubectl delete pod employee-service
+

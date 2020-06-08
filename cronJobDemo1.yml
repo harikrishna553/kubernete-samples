@@ -1,0 +1,20 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: cron-job-to-collect-log-files
+  labels:
+    app: wakeup-emails
+    author: krishna
+    serviceType: terminal-app
+spec:
+  schedule: "*/1 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: collect-log-files
+            image: busybox
+            command: ["/bin/sh"]
+            args: ["-c", "echo 'Collected all the log files'; sleep 10;"]
+          restartPolicy: OnFailure
