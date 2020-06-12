@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: user-service-with-correct-liveness-probe
+spec:
+  selector:
+    matchLabels:
+      app: helloworld
+  replicas: 1 
+  template:
+    metadata:
+      labels:
+        app: helloworld
+    spec:
+      containers:
+      - name: helloworld
+        image: jboss/wildfly
+        livenessProbe:
+          initialDelaySeconds: 10
+          failureThreshold: 3
+          timeoutSeconds: 1
+          httpGet:
+            path: /
+            port: 8080
